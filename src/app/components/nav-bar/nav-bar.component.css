@@ -1,0 +1,35 @@
+.navbar {
+    width: 100%;
+    /*background-color: $DARK_1;*/
+    z-index: 100;
+}
+
+.navbar-brand {
+    /*color: $GREEN;*/
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .active {
+    /*color: $DARK_GREEN;*/
+}
+
+.navbar-nav a {
+    /*color: $LIGHT;*/
+    cursor: pointer;
+}
+
+.navbar-nav a:hover {
+    /*color: $GREEN;*/
+}
+
+.navbar-toggler {
+    /*border: 1px solid $GREEN;*/
+    box-shadow: none;
+}
+
+.navbar-toggler i {
+    /*color: $GREEN;*/
+}
