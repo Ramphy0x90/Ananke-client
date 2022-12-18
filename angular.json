@@ -29,6 +29,16 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              {
+                "input": "src/assets/style/_light.css",
+                "bundleName": "light",
+                "inject": false
+              },
+              {
+                "input": "src/assets/style/_dark.css",
+                "bundleName": "dark",
+                "inject": false
+              },
               "src/styles.css"
             ],
             "scripts": []
@@ -98,6 +108,16 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              {
+                "input": "src/assets/style/_light.css",
+                "bundleName": "light",
+                "inject": false
+              },
+              {
+                "input": "src/assets/style/_dark.css",
+                "bundleName": "dark",
+                "inject": false
+              },
               "src/styles.css"
             ],
             "scripts": []

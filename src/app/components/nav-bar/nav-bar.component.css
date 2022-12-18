@@ -1,28 +1,34 @@
 .navbar {
     width: 100%;
-    /*background-color: $DARK_1;*/
+    background-color: var(--main-bg-1);
     z-index: 100;
 }
 
 .navbar-brand {
-    /*color: $GREEN;*/
+    color: var(--main);
 }
 
 .navbar-nav {
     margin-left: auto;
+    gap: var(--space-3);
 }
 
 .navbar-nav .active {
-    /*color: $DARK_GREEN;*/
+    color: var(--main);
 }
 
 .navbar-nav a {
-    /*color: $LIGHT;*/
+    color: var(--font-color);
+    padding: 2px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .navbar-nav a:hover {
-    /*color: $GREEN;*/
+    color: var(--main);
+}
+
+.navbar-nav a:active {
 }
 
 .navbar-toggler {
@@ -33,3 +39,5 @@
 .navbar-toggler i {
     /*color: $GREEN;*/
 }
+
+

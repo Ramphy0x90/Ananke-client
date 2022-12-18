@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="../assets/style/_dark.css">
-<app-nav-bar></app-nav-bar>
-<div [@triggerName]="outlet.isActivated ? outlet.activatedRoute : ''" style="height: 100%">
-  <router-outlet #outlet="outlet"></router-outlet>
+<div class="flex">
+  <app-nav-bar></app-nav-bar>
+  <div [@triggerName]="outlet.isActivated ? outlet.activatedRoute : ''" style="height: 100%">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
 </div>
-
-<div class="test">TEST</div>
