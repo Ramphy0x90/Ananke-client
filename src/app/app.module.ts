@@ -8,6 +8,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { LoginComponent } from './containers/login/login.component';
 import { TicketComponent } from './containers/ticket/ticket.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     HomeComponent,
     LoginComponent,
     TicketComponent,
-    NavBarComponent
+    NavBarComponent,
+    AuthFormComponent
   ],
   imports: [
     BrowserModule,
