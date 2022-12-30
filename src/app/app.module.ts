@@ -9,6 +9,8 @@ import { LoginComponent } from './containers/login/login.component';
 import { TicketComponent } from './containers/ticket/ticket.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

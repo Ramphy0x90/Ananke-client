@@ -1,12 +1,13 @@
 :root {
     /* Colors */
     --main: #3DCE50;
+    --main-dark: #3F7D20;
     --main-bg: #F6F8F8;
     --main-bg-1: #E4E7EA;
 
-    --font-color: #343A40;
-    --font-color-1: #212529;
+    --font-color: #22252e;
+    --font-color-1: #1b1d24;
 
-    --opposite: #343A40;
-    --opposite-1: #212529;
+    --opposite: #22252e;
+    --opposite-1: #1b1d24;
 }
