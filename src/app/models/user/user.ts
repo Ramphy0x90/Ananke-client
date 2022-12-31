@@ -4,5 +4,5 @@ export interface User {
     email: String;
     status: number;
     password: String | null;
-    roles: [];
+    roles: String[];
 }
