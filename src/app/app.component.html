@@ -1,6 +1,6 @@
 <div class="app-main-container">
   <app-nav-bar></app-nav-bar>
-  <div [@triggerName]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <div [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''">
     <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>
