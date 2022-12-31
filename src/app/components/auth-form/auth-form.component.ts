@@ -30,8 +30,8 @@ export class AuthFormComponent implements OnInit {
 				this.loggedIn = true;
 				this.invalidCredentials = false;
 
-				this.userService.saveLogInUser(data.user, data.accessToken);
-				this.router.navigate(['app']);
+				this.userService.saveLogInUser(data.user, data.jwtResponse.accessToken);
+				//this.router.navigate(['app']);
 			},
 			error: (err) => {
 				this.invalidCredentials = true;
