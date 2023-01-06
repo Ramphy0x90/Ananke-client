@@ -1,0 +1,16 @@
+.app-main-container {
+    
+}
+
+.app-main-container > div{
+    height: 100%;
+    padding: calc(var(--space-3) * 2);
+}
+
+.side-menu-container {
+    width: 276px;
+}
+
+.body-container {
+    flex: auto;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLogin } from 'src/app/models/user-login';
+import { UserLogin } from 'src/app/models/user/user-login';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 
@@ -31,7 +31,7 @@ export class AuthFormComponent implements OnInit {
 				this.invalidCredentials = false;
 
 				this.userService.saveLogInUser(data.user, data.jwtResponse.accessToken);
-				//this.router.navigate(['app']);
+				this.router.navigate(['app']);
 			},
 			error: (err) => {
 				this.invalidCredentials = true;

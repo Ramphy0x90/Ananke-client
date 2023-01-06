@@ -1,4 +1,7 @@
 :root {
+  /* Constants */
+  --nav-bar-height: 56px;
+
   /* Spacing */
   --space-1: 5px;
   --space-2: 8px;

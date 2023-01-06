@@ -6,7 +6,8 @@
 
 .app-main-container > div{
     position: absolute;
+    top: var(--nav-bar-height);
     flex: auto;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--nav-bar-height));
 }

@@ -15,7 +15,6 @@ export class NavBarComponent implements OnInit {
    * 3 = LOGGED
    * 4 = ONLY-ADMIN
    */
-  test = [1, 2, 3, 4]
   navBarOptions: Option[] = [
     {
       name: 'Home',
