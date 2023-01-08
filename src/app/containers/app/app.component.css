@@ -9,6 +9,7 @@
 
 .side-menu-container {
     width: 276px;
+    border-right: 1px solid var(--main)
 }
 
 .body-container {

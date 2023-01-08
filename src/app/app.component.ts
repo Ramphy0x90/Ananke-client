@@ -2,8 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RouteTransitionAnimations } from './route-transition-animations';
 import { DOCUMENT } from '@angular/common';
-
-let currentStyle: string = 'light';
+import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +11,25 @@ let currentStyle: string = 'light';
   animations: [RouteTransitionAnimations]
 })
 export class AppComponent {
-  title = 'Ananke-client';
+  title: String = 'Ananke-client';
+  currentStyle!: String;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private navigationService: NavigationService) {
     const head = this.document.getElementsByTagName('head')[0];
     const style = this.document.createElement('link');
 
+    this.navigationService.themeUpdate.subscribe({
+      next: (theme: String) => {
+        this.currentStyle = theme;
+      }
+    });
+
+    this.currentStyle = this.navigationService.getCurrentTheme();
+    this.navigationService.changeTheme(this.currentStyle);
+
     style.rel = 'stylesheet';
-    style.href = `../assets/style/_${currentStyle}.css`;
+    style.href = `../assets/style/_${this.currentStyle}.css`;
 
     head.appendChild(style);
   }

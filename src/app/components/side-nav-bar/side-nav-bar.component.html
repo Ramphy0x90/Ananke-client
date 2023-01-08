@@ -1,5 +1,11 @@
 <div class="side-nav-bar-main-container">
-    <div class="side-navbar-option" *ngFor="let option of navBarOptions">
-        {{ option.name }}
-    </div>
+    <ng-container *ngFor="let option of navBarOptions">
+        <div class="side-navbar-option" *ngIf="option.name != 'separator'; else elseBlock">
+            <i class="{{ option.icon }}"></i>
+            {{ option.name }}
+        </div>
+        <ng-template #elseBlock>
+            <div class="separator"></div>
+        </ng-template> 
+    </ng-container>     
 </div>

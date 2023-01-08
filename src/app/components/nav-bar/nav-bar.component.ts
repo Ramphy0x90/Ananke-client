@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Option } from 'src/app/models/nav-bar/option';
 import { User } from 'src/app/models/user/user';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  currentTheme!: String;
+
   /**
    * 1 = ONLY-UNLOGGED
    * 2 = ALL 
@@ -18,27 +21,39 @@ export class NavBarComponent implements OnInit {
   navBarOptions: Option[] = [
     {
       name: 'Home',
+      icon: '',
       route: 'home',
       access: 1
     },
     {
       name: 'App',
+      icon: '',
       route: 'app',
       access: 3
     },
     {
       name: 'Login',
+      icon: '',
       route: 'log-in',
       access: 1
     },
     {
       name: 'Logout',
+      icon: '',
       route: 'home',
       access: 3
     }
   ];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private navigationService: NavigationService) {
+    this.navigationService.themeUpdate.subscribe({
+      next: (theme: String) => {
+        this.currentTheme = theme;
+      }
+    });
+
+    this.currentTheme = this.navigationService.getCurrentTheme();
+  }
 
   ngOnInit(): void {
   }
@@ -68,9 +83,12 @@ export class NavBarComponent implements OnInit {
       }
     }
 
-    console.log("ESTAAy")
-
     return false;
+  }
+
+  changeTheme(theme: String): void {
+    this.navigationService.changeTheme(theme);
+    window.location.reload();
   }
 }
 
