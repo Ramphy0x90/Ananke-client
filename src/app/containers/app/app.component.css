@@ -2,7 +2,7 @@
     
 }
 
-.app-main-container > div{
+.app-main-container > div {
     height: 100%;
     padding: calc(var(--space-3) * 2);
 }
@@ -15,4 +15,6 @@
 
 .body-container {
     flex: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

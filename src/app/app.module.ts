@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.component';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { TicketsComponent } from './containers/tickets/tickets.component';
-//import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { TicketsComponent } from './containers/tickets/tickets.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

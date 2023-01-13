@@ -1,16 +1,27 @@
 <div class="dashboard-main-container">
-  <!--<ngx-charts-line-chart
-  [view]="view"
-  [scheme]="'cool'"
-  [legend]="legend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxis]="xAxis"
-  [yAxis]="yAxis"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  [timeline]="timeline"
-  [results]="multi"
-  >
-  </ngx-charts-line-chart>-->
+  <div class="line-chart-container">
+    <ngx-charts-line-chart
+    [scheme]="'cool'"
+    [legend]="legend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxis]="xAxis"
+    [yAxis]="yAxis"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [timeline]="timeline"
+    [results]="multi"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+    >
+    </ngx-charts-line-chart>
+  </div>
+
+  <div class="pie-grid-container">
+    <ngx-charts-pie-grid
+    [scheme]="'cool'"
+    [results]="single">
+    </ngx-charts-pie-grid>
+  </div>
 </div>
