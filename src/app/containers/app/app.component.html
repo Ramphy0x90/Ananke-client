@@ -3,5 +3,8 @@
         <app-side-nav-bar></app-side-nav-bar>
     </div>
     <div class="body-container">
+        <div [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </div>
     </div>
 </div>

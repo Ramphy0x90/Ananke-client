@@ -1,6 +1,8 @@
 <div class="side-nav-bar-main-container">
     <ng-container *ngFor="let option of navBarOptions">
-        <div class="side-navbar-option" *ngIf="option.name != 'separator'; else elseBlock">
+        <div class="side-navbar-option"
+        routerLink="{{ option.route }}"
+        *ngIf="option.name != 'separator'; else elseBlock">
             <i class="{{ option.icon }}"></i>
             {{ option.name }}
         </div>

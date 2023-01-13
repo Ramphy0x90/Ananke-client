@@ -3,6 +3,7 @@
     --main: #72B01D;
     --main-dark: #3F7D20;
     --main-bg: #22252e;
+    --main-bg-0: #22252e;
     --main-bg-1: #1b1d24;
 
     --font-color: #F6F8F8;
@@ -13,7 +14,7 @@
 
     /* Shadow */
     --n-shadow: 5px 5px 10px #1d1f27,
-    -5px -5px 10px #272b35;
+    -5px -5px 10px #31343d;
 }
 
 .login-main-container {

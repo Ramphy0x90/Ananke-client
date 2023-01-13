@@ -23,7 +23,7 @@ export class NavigationService {
    */
   getCurrentTheme(): String {
     let storedTheme = window.sessionStorage.getItem('theme');
-    if(storedTheme) {
+    if (storedTheme) {
       return storedTheme;
     } else {
       return 'light';

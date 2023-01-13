@@ -13,6 +13,9 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.component';
+import { DashboardComponent } from './containers/dashboard/dashboard.component';
+import { TicketsComponent } from './containers/tickets/tickets.component';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.comp
     TicketComponent,
     NavBarComponent,
     AuthFormComponent,
-    SideNavBarComponent
+    SideNavBarComponent,
+    DashboardComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,7 @@ import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.comp
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

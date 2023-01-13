@@ -21,14 +21,14 @@ export class SideNavBarComponent {
       access: 3
     },
     {
-      name: 'Recent tickets',
-      icon: 'bi bi-clock',
+      name: 'My tickets',
+      icon: 'bi bi-ui-checks',
       route: 'tickets',
       access: 3
     },
     {
-      name: 'My tickets',
-      icon: 'bi bi-ui-checks',
+      name: 'Recent tickets',
+      icon: 'bi bi-clock',
       route: 'tickets',
       access: 3
     },
