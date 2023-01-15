@@ -16,6 +16,11 @@ import { SideNavBarComponent } from './components/side-nav-bar/side-nav-bar.comp
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { TicketsComponent } from './containers/tickets/tickets.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { TicketActionsMenuComponent } from './components/ticket-actions-menu/ticket-actions-menu.component';
+import { CreateTicketComponent } from './containers/create-ticket/create-ticket.component';
+import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
+import { RecentTicketsComponent } from './containers/recent-tickets/recent-tickets.component';
+import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     AuthFormComponent,
     SideNavBarComponent,
     DashboardComponent,
-    TicketsComponent
+    TicketsComponent,
+    TicketActionsMenuComponent,
+    CreateTicketComponent,
+    TicketFormComponent,
+    RecentTicketsComponent,
+    ClosedTicketsComponent
   ],
   imports: [
     BrowserModule,
