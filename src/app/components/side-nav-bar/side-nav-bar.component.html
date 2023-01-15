@@ -1,7 +1,9 @@
 <div class="side-nav-bar-main-container">
     <ng-container *ngFor="let option of navBarOptions">
         <div class="side-navbar-option"
+        routerLinkActive="active"
         routerLink="{{ option.route }}"
+        (click)="nvaigate(option.route)"
         *ngIf="option.name != 'separator'; else elseBlock">
             <i class="{{ option.icon }}"></i>
             {{ option.name }}

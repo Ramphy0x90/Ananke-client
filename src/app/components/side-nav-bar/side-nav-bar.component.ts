@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Option } from 'src/app/models/nav-bar/option';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-side-nav-bar',
@@ -29,13 +30,13 @@ export class SideNavBarComponent {
     {
       name: 'Recent tickets',
       icon: 'bi bi-clock',
-      route: 'tickets',
+      route: 'tickets/all',
       access: 3
     },
     {
       name: 'Closed tickets',
       icon: 'bi bi-check-circle',
-      route: 'tickets',
+      route: 'tickets/closed',
       access: 3
     },
     {
@@ -51,4 +52,22 @@ export class SideNavBarComponent {
       access: 3
     }
   ];
+
+  currentPage: string = "";
+
+  constructor(private navigationService: NavigationService) {
+    this.navigationService.currentPage.subscribe({
+      next: (page: string) => {
+        this.currentPage = page;
+      }
+    });
+  }
+
+  /**
+   * Update current page with navigation service
+   * @param page 
+   */
+  nvaigate(page: String): void {
+    this.navigationService.setCurrentPage(page.toString());
+  }
 }

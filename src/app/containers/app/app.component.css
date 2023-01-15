@@ -18,3 +18,11 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+::ng-deep .ngx-charts text {
+    fill: var(--font-color-1) !important;
+}
+
+::ng-deep .chart-legend li:hover * {
+    color: var(--main) !important;
+}

@@ -1,0 +1,31 @@
+.ticket-actions-menu-main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(var(--nav-bar-height) / 4 * 3);
+    padding: 0 var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--main);
+    border-radius: calc(var(--radius) / 2);
+    background-color: var(--main-bg-0);
+}
+
+.ticket-actions-menu-main-container .actions-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.ticket-actions-menu-main-container .menu-action:hover {
+    cursor: pointer;
+    color: var(--main);
+}
+
+.ticket-actions-menu-main-container .user-info {
+    padding: calc(var(--space-1) / 2) var(--space-4);
+    animation: userInfo 3s linear infinite;
+    border-left: 1px solid var(--main);
+}

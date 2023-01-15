@@ -1,0 +1,48 @@
+<div class="ticket-form-main-container">
+  <form id="ticket-form" name="ticket-form" (ngSubmit)="submit(form)" #form="ngForm">
+    <div class="fields-contianer">
+      <fieldset>
+        <div class="mb-3">
+          <label for="ticket-title" class="form-label">Title</label>
+          <input type="text" id="ticket-title" class="form-control" placeholder="Title"
+          [(ngModel)]="formData.title" #title="ngModel" name="title">
+        </div>
+        <div class="mb-3">
+          <label for="ticket-category" class="form-label">Category</label>
+          <select id="ticket-category" class="form-select"
+          [(ngModel)]="formData.category" #category="ngModel" name="category">
+            <option>Web app</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="mb-3">
+          <label for="ticket-status" class="form-label">Status</label>
+          <select id="ticket-status" class="form-select"
+          [(ngModel)]="formData.status" #status="ngModel" name="status">
+            <option>Status</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="ticket-priority" class="form-label">Priority</label>
+          <select id="ticket-priority" class="form-select"
+          [(ngModel)]="formData.priority" #priority="ngModel" name="priority">
+            <option>High</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="mb-3">
+          <label for="ticket-description" class="form-label">Description</label>
+          <textarea id="ticket-description" class="form-control" placeholder="Description" rows="4"
+          [(ngModel)]="formData.description" #description="ngModel" name="description"
+          style="overflow:auto;resize:none"></textarea>
+        </div>
+      </fieldset>
+    </div>
+    <div class="buttons-container">
+      <button type="submit" class="button-submit">Create</button>
+      <button type="button" class="button-close" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

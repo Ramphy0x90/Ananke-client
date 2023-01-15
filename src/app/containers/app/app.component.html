@@ -3,6 +3,7 @@
         <app-side-nav-bar></app-side-nav-bar>
     </div>
     <div class="body-container">
+        <app-ticket-actions-menu></app-ticket-actions-menu>
         <div [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''">
             <router-outlet #outlet="outlet"></router-outlet>
         </div>

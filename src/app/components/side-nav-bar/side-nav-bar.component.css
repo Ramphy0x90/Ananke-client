@@ -16,13 +16,13 @@
     box-shadow: var(--n-shadow);
 }
 
-.side-navbar-option:hover{
-    cursor: pointer;
+.side-navbar-option.active {
     color: var(--main);
 }
 
-.side-navbar-option i {
-    color: var(--main)
+.side-navbar-option:hover{
+    cursor: pointer;
+    color: var(--main);
 }
 
 .separator {
