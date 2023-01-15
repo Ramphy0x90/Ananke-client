@@ -6,6 +6,10 @@ import { LoginComponent } from './containers/login/login.component';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { TicketsComponent } from './containers/tickets/tickets.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CreateTicketComponent } from './containers/create-ticket/create-ticket.component';
+import { RecentTicketsComponent } from './containers/recent-tickets/recent-tickets.component';
+import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
+import { TicketComponent } from './containers/ticket/ticket.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -13,7 +17,12 @@ const routes: Routes = [
   {
     path: 'app', component: AnankeAppComponent, canActivate: [AuthGuard], children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'tickets', component: TicketsComponent },
+      { path: 'ticket/:id', component: TicketComponent },
+      { path: 'tickets', component: TicketsComponent, children: [
+        { path: 'create', component: CreateTicketComponent },
+        { path: 'all', component: RecentTicketsComponent },
+        { path: 'closed', component: ClosedTicketsComponent }
+      ] },
     ]
   },
   { path: 'log-in', component: LoginComponent }
