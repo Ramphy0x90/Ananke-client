@@ -11,7 +11,9 @@
           <label for="ticket-category" class="form-label">Category</label>
           <select id="ticket-category" class="form-select"
           [(ngModel)]="formData.category" #category="ngModel" name="category">
-            <option>Web app</option>
+            <option *ngFor="let category of categories" [ngValue]="category">
+              {{ category.name }}
+            </option>
           </select>
         </div>
       </fieldset>
@@ -20,14 +22,18 @@
           <label for="ticket-status" class="form-label">Status</label>
           <select id="ticket-status" class="form-select"
           [(ngModel)]="formData.status" #status="ngModel" name="status">
-            <option>Status</option>
+            <option *ngFor="let status of states" [ngValue]="status">
+              {{ status.name }}
+            </option>
           </select>
         </div>
         <div class="mb-3">
           <label for="ticket-priority" class="form-label">Priority</label>
           <select id="ticket-priority" class="form-select"
           [(ngModel)]="formData.priority" #priority="ngModel" name="priority">
-            <option>High</option>
+            <option *ngFor="let priority of priorities" [ngValue]="priority">
+              {{ priority.name }}
+            </option>
           </select>
         </div>
       </fieldset>

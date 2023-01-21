@@ -1,7 +1,9 @@
+import { TicketField } from "./ticket-field";
+
 export interface TicketFormCreate {
     title: string;
-    category: number;
-    status: number;
-    priority: number;
+    category: TicketField;
+    status: TicketField;
+    priority: TicketField;
     description: string;
 }
