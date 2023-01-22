@@ -22,6 +22,7 @@ import { CreateTicketComponent } from './containers/create-ticket/create-ticket.
 import { TicketFormComponent } from './components/ticket-form/ticket-form.component';
 import { RecentTicketsComponent } from './containers/recent-tickets/recent-tickets.component';
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
+import { TicketsTableComponent } from './components/ticket/tickets-table/tickets-table.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/close
     CreateTicketComponent,
     TicketFormComponent,
     RecentTicketsComponent,
-    ClosedTicketsComponent
+    ClosedTicketsComponent,
+    TicketsTableComponent
   ],
   imports: [
     BrowserModule,

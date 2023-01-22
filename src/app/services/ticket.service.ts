@@ -26,6 +26,16 @@ export class TicketService {
   }
 
   /**
+   * This function is used to get all tickets for a user
+   * @returns Observable of tickets
+   */
+    getTicketsByUser(id: number): Observable<any> {
+      return this.httpClient.get(
+        `${environment.server}/ticket/all/${id}`, this.httpOptions
+      )
+    }
+
+  /**
    * This function is used to get a ticket
    * by given id
    * @param id ticket id

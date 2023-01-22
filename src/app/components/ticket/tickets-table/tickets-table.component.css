@@ -1,0 +1,13 @@
+.tickets-table-main-container thead {
+    color: var(--main-bg-0);
+    background-color: var(--main);
+}
+
+.tickets-table-main-container tr {
+    color: var(--font-color);
+}
+
+.tickets-table-main-container tr:hover {
+    color: var(--main);
+    cursor: pointer;
+}

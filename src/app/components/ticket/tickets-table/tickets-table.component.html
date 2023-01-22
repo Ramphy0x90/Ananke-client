@@ -1,0 +1,22 @@
+<div class="tickets-table-main-container">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" *ngFor="let column of visibleColumns">
+                {{ column }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ticket of tickets" (click)="navigate(ticket.id)">
+            <th scope="row">{{ ticket.id }}</th>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.description }}</td>
+            <td>{{ ticket.status.name }}</td>
+            <td>{{ ticket.priority.name }}</td>
+            <td>{{ ticket.category.name }}</td>
+            <td>{{ ticket.creationDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

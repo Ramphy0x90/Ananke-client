@@ -2,11 +2,11 @@ export interface Ticket {
     id: number;
     title: string;
     description: string;
-    status: string;
+    status: any;
     assignee: any;
     provisionalAssignee: any;
-    category: string;
-    priority: string;
+    category: any;
+    priority: any;
     creationDate: Date;
     closeData: Date;
 }

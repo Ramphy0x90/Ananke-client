@@ -21,6 +21,7 @@
           data-bs-target=".navbar-collapse.show"
           routerLinkActive="active"
           routerLink="{{ option.route }}"
+          (click)="(option.name == 'Logout') ? logOut() : ''"
           >{{ option.name }}</a>
         </ng-container>
         <i class="bi bi-moon-stars-fill" *ngIf="currentTheme == 'light'" (click)="changeTheme('dark')"></i>

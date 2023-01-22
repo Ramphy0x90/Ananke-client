@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Option } from 'src/app/models/nav-bar/option';
 import { User } from 'src/app/models/user/user';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -45,7 +46,9 @@ export class NavBarComponent implements OnInit {
     }
   ];
 
-  constructor(private userService: UserService, private navigationService: NavigationService) {
+  constructor(private userService: UserService,
+    private navigationService: NavigationService,
+    private router: Router) {
     this.navigationService.themeUpdate.subscribe({
       next: (theme: String) => {
         this.currentTheme = theme;
@@ -89,6 +92,11 @@ export class NavBarComponent implements OnInit {
   changeTheme(theme: String): void {
     this.navigationService.changeTheme(theme);
     window.location.reload();
+  }
+
+  logOut(): void {
+    this.userService.logOut();
+    this.router.navigate(["/home"]);
   }
 }
 
