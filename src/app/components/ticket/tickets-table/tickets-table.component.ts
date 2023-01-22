@@ -9,6 +9,7 @@ import { Ticket } from 'src/app/models/ticket/ticket';
 })
 export class TicketsTableComponent implements OnInit{
   @Input() tickets: Ticket[] = [];
+  selectedTickets: Ticket[] = [];
   visibleColumns: string[] = [
     "Id",
     "Title",
@@ -22,6 +23,17 @@ export class TicketsTableComponent implements OnInit{
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+  }
+
+  select(ticket: Ticket): void {
+    if(!this.selectedTickets.includes(ticket)) {
+      if(this.selectedTickets.length < 99) {
+        this.selectedTickets.push(ticket);
+      }
+    } else {
+      let index = this.selectedTickets.findIndex(t => t.id === ticket.id);
+      this.selectedTickets.splice(index, 1);
+    }
   }
 
   /**

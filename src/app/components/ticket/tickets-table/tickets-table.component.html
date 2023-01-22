@@ -2,13 +2,19 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
+            <th class="selected-tickets" *ngIf="selectedTickets.length > 0">
+                <i class="bi bi-check2-square"></i> {{ selectedTickets.length }}
+            </th>
             <th scope="col" *ngFor="let column of visibleColumns">
                 {{ column }}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ticket of tickets" (click)="navigate(ticket.id)">
+          <tr *ngFor="let ticket of tickets" (click)="select(ticket)" [class.selected]="this.selectedTickets.includes(ticket)">
+            <td class="ticket-selection" *ngIf="selectedTickets.length > 0">
+                <input type="checkbox" [checked]="this.selectedTickets.includes(ticket)">
+            </td>
             <th scope="row">{{ ticket.id }}</th>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.description }}</td>

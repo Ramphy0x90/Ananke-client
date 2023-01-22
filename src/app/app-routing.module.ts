@@ -19,6 +19,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'ticket/:id', component: TicketComponent },
       { path: 'tickets', component: TicketsComponent, children: [
+        { path: '', component: TicketsComponent },
         { path: 'create', component: CreateTicketComponent },
         { path: 'all', component: RecentTicketsComponent },
         { path: 'closed', component: ClosedTicketsComponent }

@@ -1,13 +1,21 @@
-.tickets-table-main-container thead {
-    color: var(--main-bg-0);
+.tickets-table-main-container thead, .tickets-table-main-container thead th {
     background-color: var(--main);
+}
+
+.tickets-table-main-container thead i {
+    color: var(--font-color);
+    font-size: 15px;
 }
 
 .tickets-table-main-container tr {
     color: var(--font-color);
 }
 
-.tickets-table-main-container tr:hover {
+.tickets-table-main-container tbody tr:hover {
     color: var(--main);
     cursor: pointer;
+}
+
+.tickets-table-main-container .selected {
+    color: var(--main);
 }
