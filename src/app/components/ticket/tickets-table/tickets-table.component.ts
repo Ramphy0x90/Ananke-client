@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ticket } from 'src/app/models/ticket/ticket';
+import { Event } from 'src/app/models/events-service/event';
+import { EventsService } from 'src/app/services/events.service';
 
 @Component({
   selector: 'app-tickets-table',
@@ -20,11 +22,26 @@ export class TicketsTableComponent implements OnInit{
     "Created date"
   ];
 
-  constructor(private router: Router) {}
+  event: Event = {
+    id: "tickets-table",
+    name: "selected-records",
+    description: "",
+    direction: 1,
+    data: []
+  };
+
+  constructor(private router: Router,
+    private eventsService: EventsService) {}
 
   ngOnInit(): void {
+    this.eventsService.register(this.event);
   }
 
+  /**
+   * Select tickets in order to perform
+   * specific actions
+   * @param ticket object
+   */
   select(ticket: Ticket): void {
     if(!this.selectedTickets.includes(ticket)) {
       if(this.selectedTickets.length < 99) {
@@ -34,6 +51,13 @@ export class TicketsTableComponent implements OnInit{
       let index = this.selectedTickets.findIndex(t => t.id === ticket.id);
       this.selectedTickets.splice(index, 1);
     }
+
+    if(this.selectedTickets.length == 1) {
+      this.eventsService.set('currentTicket', this.selectedTickets[0]);
+    }
+
+    this.event.data = this.selectedTickets;
+    this.eventsService.register(this.event);
   }
 
   /**

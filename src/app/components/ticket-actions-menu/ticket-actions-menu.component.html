@@ -1,9 +1,7 @@
 <div class="ticket-actions-menu-main-container">
     <div class="actions-container">
         <ng-container *ngFor="let action of menuActions">
-            <div class="menu-action"
-            routerLink="{{ action.route }}"
-            *ngIf="action.name != 'separator'">
+            <div class="menu-action" routerLink="{{ action.route }}" *ngIf="show(action)">
                 <i class="{{ action.icon }}"></i>
                 {{ action.name }}
             </div>

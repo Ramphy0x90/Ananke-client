@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TicketFormCreate } from 'src/app/models/ticket/ticket-form-create';
 import { Ticket } from '../models/ticket/ticket';
+import { TicketFormEdit } from '../models/ticket/ticket-form-edit';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class TicketService {
    * This function is used to get all tickets for a user
    * @returns Observable of tickets
    */
-    getTicketsByUser(id: number): Observable<any> {
+  getTicketsByUser(id: number): Observable<any> {
       return this.httpClient.get(
         `${environment.server}/ticket/all/${id}`, this.httpOptions
       )
@@ -45,16 +46,6 @@ export class TicketService {
     return this.httpClient.get(
       `${environment.server}/ticket/${id}`, this.httpOptions
     )
-  }
-
-  /**
-   * This functions is used to create a new ticket
-   * @param ticket data
-   */
-  createTicket(ticket: TicketFormCreate): Observable<any> {
-    return this.httpClient.post(
-      `${environment.server}/ticket/create`, ticket, this.httpOptions
-    );
   }
 
   /**
@@ -85,5 +76,25 @@ export class TicketService {
     return this.httpClient.get(
       `${environment.server}/ticket/category/all`, this.httpOptions
     )
+  }
+
+  /**
+   * This functions is used to create a new ticket
+   * @param ticket data
+   */
+  createTicket(ticket: TicketFormCreate): Observable<any> {
+    return this.httpClient.post(
+      `${environment.server}/ticket/create`, ticket, this.httpOptions
+    );
+  }
+
+  /**
+   * This functions is used to update a ticket
+   * @param ticket data
+   */
+  updateTicket(ticket: TicketFormEdit): Observable<any> {
+    return this.httpClient.post(
+      `${environment.server}/ticket/update`, ticket, this.httpOptions
+    );
   }
 }

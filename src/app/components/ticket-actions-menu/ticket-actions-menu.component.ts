@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Option } from 'src/app/models/nav-bar/option';
 import { User } from 'src/app/models/user/user';
+import { Event } from 'src/app/models/events-service/event';
+import { EventsService } from 'src/app/services/events.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-actions-menu',
@@ -24,6 +27,12 @@ export class TicketActionsMenuComponent {
       access: 3
     },
     {
+      name: 'Edit ticket',
+      icon: 'bi bi-pencil-square',
+      route: 'tickets/edit',
+      access: 3
+    },
+    {
       name: 'Delete ticket',
       icon: 'bi bi-trash3',
       route: 'tickets',
@@ -31,14 +40,23 @@ export class TicketActionsMenuComponent {
     }
   ];
 
-
   currentView: string = "";
   currentUser!: User;
+  currentEvent!: Event;
 
-  constructor(private navigationService: NavigationService, private userService: UserService) {
+  constructor(private navigationService: NavigationService,
+    private router: Router,
+    private userService: UserService,
+    private eventService: EventsService) {
     this.navigationService.currentView.subscribe({
       next: (view: string) => {
         this.currentView = view;
+      }
+    });
+
+    this.eventService.event.subscribe({
+      next: (event: Event) => {
+        this.currentEvent = event;
       }
     });
 
@@ -46,6 +64,28 @@ export class TicketActionsMenuComponent {
     if(checkUser != null) {
       this.currentUser = checkUser;
     }
+  }
+
+  show(option: Option): boolean {
+    switch(option.name) {
+      case 'Add ticket':
+        if(this.router.url != '/app/tickets/create') {
+          return true;
+        }
+        break;
+      case 'Edit ticket':
+        if(this.currentEvent && this.currentEvent.id == 'tickets-table' && this.currentEvent.data.length == 1) {
+          return true;
+        }
+        break;
+      case 'Delete ticket':
+        if(this.currentEvent && this.currentEvent.id == 'tickets-table' && this.currentEvent.data.length > 1) {
+          return true;
+        }
+        break;
+    }
+
+    return false;
   }
 
   /**
