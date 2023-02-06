@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TicketField } from 'src/app/models/ticket/ticket-field';
 import { TicketFormCreate } from 'src/app/models/ticket/ticket-form-create';
 import { EventsService } from 'src/app/services/events.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class TicketFormComponent implements OnInit {
 
   constructor(private router: Router,
     private ticketService: TicketService,
-    private eventService: EventsService) {}
+    private eventService: EventsService,
+    private navigationService: NavigationService) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -110,6 +112,17 @@ export class TicketFormComponent implements OnInit {
           }
         });
         break;
+      case 'edit':
+        this.ticketService.createTicket(form.value).subscribe({
+          next: (data) => {
+            this.formNotify.emit({type: 'success', message: 'Ticket created successfully'});
+            this.router.navigate(['app/tickets']);
+          },
+          error: (error) => {
+            this.formNotify.emit({type: 'error',message: 'Error creating ticket'});
+            console.log(error);
+          }
+        });
     }
   }
 
@@ -119,6 +132,7 @@ export class TicketFormComponent implements OnInit {
    */
   close(): void {
     this.initForm();
+    this.navigationService.setCurrentView("");
     this.router.navigate(['app/tickets']);
   }
 

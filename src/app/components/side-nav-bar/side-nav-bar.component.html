@@ -6,7 +6,7 @@
         (click)="nvaigate(option.route)"
         *ngIf="option.name != 'separator'; else elseBlock">
             <i class="{{ option.icon }}"></i>
-            {{ option.name }}
+            {{ option.id | idToName }}
         </div>
         <ng-template #elseBlock>
             <div class="separator"></div>

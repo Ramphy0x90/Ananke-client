@@ -44,7 +44,7 @@ export class NavigationService {
     if (storedTheme) {
       return storedTheme;
     } else {
-      return 'light';
+      return 'dark';
     }
   }
 }

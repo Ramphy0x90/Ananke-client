@@ -21,18 +21,21 @@ export class TicketActionsMenuComponent {
    */
   menuActions: Option[] = [
     {
+      id: 'TA:add_ticket',
       name: 'Add ticket',
       icon: 'bi bi-plus-lg',
       route: 'tickets/create',
       access: 3
     },
     {
+      id: 'TA:edit_ticket',
       name: 'Edit ticket',
       icon: 'bi bi-pencil-square',
       route: 'tickets/edit',
       access: 3
     },
     {
+      id: 'TA:delete_ticket',
       name: 'Delete ticket',
       icon: 'bi bi-trash3',
       route: 'tickets',
@@ -69,17 +72,24 @@ export class TicketActionsMenuComponent {
   show(option: Option): boolean {
     switch(option.name) {
       case 'Add ticket':
-        if(this.router.url != '/app/tickets/create') {
+        if(this.router.url != '/app/tickets/create'
+        && this.currentView != 'TA:edit_ticket') {
           return true;
         }
         break;
       case 'Edit ticket':
-        if(this.currentEvent && this.currentEvent.id == 'tickets-table' && this.currentEvent.data.length == 1) {
+        if(this.currentEvent
+          && this.currentEvent.id == 'tickets-table'
+          && this.currentEvent.data.length == 1
+          && this.currentView != 'TA:edit_ticket') {
           return true;
         }
         break;
       case 'Delete ticket':
-        if(this.currentEvent && this.currentEvent.id == 'tickets-table' && this.currentEvent.data.length > 1) {
+        if((this.currentEvent
+          && this.currentEvent.id == 'tickets-table'
+          && this.currentEvent.data.length > 1)
+          || this.currentView == 'TA:edit_ticket') {
           return true;
         }
         break;
@@ -92,7 +102,7 @@ export class TicketActionsMenuComponent {
    * Update current view with navigation service
    * @param view 
    */
-  navigate(view: string): void {
-    this.navigationService.setCurrentView(view);
+  notifyChangeView(viewId: String): void {
+    this.navigationService.setCurrentView(viewId.toString());
   }
 }

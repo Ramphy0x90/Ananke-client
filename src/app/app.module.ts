@@ -23,6 +23,7 @@ import { TicketFormComponent } from './components/ticket-form/ticket-form.compon
 import { RecentTicketsComponent } from './containers/recent-tickets/recent-tickets.component';
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
 import { TicketsTableComponent } from './components/ticket/tickets-table/tickets-table.component';
+import { IdToNamePipe } from './pipes/ticket/id-to-name.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TicketsTableComponent } from './components/ticket/tickets-table/tickets
     TicketFormComponent,
     RecentTicketsComponent,
     ClosedTicketsComponent,
-    TicketsTableComponent
+    TicketsTableComponent,
+    IdToNamePipe
   ],
   imports: [
     BrowserModule,

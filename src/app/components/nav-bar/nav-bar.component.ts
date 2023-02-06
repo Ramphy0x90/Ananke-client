@@ -21,24 +21,28 @@ export class NavBarComponent implements OnInit {
    */
   navBarOptions: Option[] = [
     {
+      id: 'NB:home',
       name: 'Home',
       icon: '',
       route: 'home',
       access: 1
     },
     {
+      id: 'NB:app',
       name: 'App',
       icon: '',
       route: 'app',
       access: 3
     },
     {
+      id: 'NB:login',
       name: 'Login',
       icon: '',
       route: 'log-in',
       access: 1
     },
     {
+      id: 'NB:logout',
       name: 'Logout',
       icon: '',
       route: 'home',

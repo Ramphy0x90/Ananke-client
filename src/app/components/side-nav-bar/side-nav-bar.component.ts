@@ -16,36 +16,42 @@ export class SideNavBarComponent {
    */
   navBarOptions: Option[] = [
     {
+      id: 'SNB:dashboard',
       name: 'Dashboard',
       icon: 'bi bi-speedometer',
       route: 'dashboard',
       access: 3
     },
     {
+      id: 'SNB:my_tickets',
       name: 'My tickets',
       icon: 'bi bi-ui-checks',
       route: 'tickets',
       access: 3
     },
     {
+      id: 'SNB:recent_tickets',
       name: 'Recent tickets',
       icon: 'bi bi-clock',
       route: 'tickets/all',
       access: 3
     },
     {
+      id: 'SNB:closed_tickets',
       name: 'Closed tickets',
       icon: 'bi bi-check-circle',
       route: 'tickets/closed',
       access: 3
     },
     {
+      id: 'SNB:separator',
       name: 'separator',
       icon: '',
       route: '',
       access: 3
     },
     {
+      id: 'SNB:create_view',
       name: 'Create view',
       icon: 'bi bi-window-plus',
       route: 'create-view',
