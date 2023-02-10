@@ -93,7 +93,7 @@ export class TicketService {
    * @param ticket data
    */
   updateTicket(ticket: TicketFormEdit): Observable<any> {
-    return this.httpClient.post(
+    return this.httpClient.put(
       `${environment.server}/ticket/update`, ticket, this.httpOptions
     );
   }

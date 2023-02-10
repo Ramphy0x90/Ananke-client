@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TicketField } from 'src/app/models/ticket/ticket-field';
 import { TicketFormCreate } from 'src/app/models/ticket/ticket-form-create';
+import { TicketFormEdit } from 'src/app/models/ticket/ticket-form-edit';
 import { EventsService } from 'src/app/services/events.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { TicketService } from 'src/app/services/ticket.service';
@@ -16,7 +17,7 @@ export class TicketFormComponent implements OnInit {
   @Input() type!: string;
   @Output() formNotify = new EventEmitter<any>();
 
-  formData!: TicketFormCreate;
+  formData!: TicketFormCreate | TicketFormEdit;
   states: TicketField[] = [];
   priorities: TicketField[] = [];
   categories: TicketField[] = [];
@@ -41,14 +42,14 @@ export class TicketFormComponent implements OnInit {
    * form data empty values
    */
   initForm(): void {
-    if(this.eventService.get("currentTicket") != undefined) {
-      this.formData = this.eventService.get("currentTicket");
+    if(this.eventService.get("currentTicket") != undefined && this.type == 'edit') {
+      this.formData = <TicketFormEdit> this.eventService.get("currentTicket");
 
       this.defaultFields.state = this.formData.status.name;
       this.defaultFields.priority = this.formData.priority.name;
       this.defaultFields.category = this.formData.category.name;
     } else {
-      this.formData = {
+      this.formData = <TicketFormCreate> {
         title: "",
         category: {id: 0, name: "", weight: null},
         status: {id: 0, name: "", weight: null},
@@ -113,9 +114,11 @@ export class TicketFormComponent implements OnInit {
         });
         break;
       case 'edit':
-        this.ticketService.createTicket(form.value).subscribe({
+        form.value.id = (<TicketFormEdit> this.formData).id;
+        
+        this.ticketService.updateTicket(form.value).subscribe({
           next: (data) => {
-            this.formNotify.emit({type: 'success', message: 'Ticket created successfully'});
+            this.formNotify.emit({type: 'success', message: 'Ticket updated successfully'});
             this.router.navigate(['app/tickets']);
           },
           error: (error) => {
@@ -124,6 +127,8 @@ export class TicketFormComponent implements OnInit {
           }
         });
     }
+
+    this.navigationService.setCurrentView("");
   }
 
   /**
@@ -131,7 +136,6 @@ export class TicketFormComponent implements OnInit {
    * and clear form data
    */
   close(): void {
-    this.initForm();
     this.navigationService.setCurrentView("");
     this.router.navigate(['app/tickets']);
   }

@@ -43,11 +43,13 @@ export class TicketsTableComponent implements OnInit{
    * @param ticket object
    */
   select(ticket: Ticket): void {
+    // If selected ticket is not checked then check it
     if(!this.selectedTickets.includes(ticket)) {
       if(this.selectedTickets.length < 99) {
         this.selectedTickets.push(ticket);
       }
     } else {
+      // If selected ticket is checked, un select it
       let index = this.selectedTickets.findIndex(t => t.id === ticket.id);
       this.selectedTickets.splice(index, 1);
     }
