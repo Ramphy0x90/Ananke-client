@@ -1,1 +1,7 @@
-<p>recent-tickets works!</p>
+<div class="tickets-main-container">
+    <div [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''">
+        <router-outlet #outlet="outlet">
+        </router-outlet>
+        <app-tickets-table [tickets]="tickets" *ngIf="!outlet.isActivated"></app-tickets-table>
+    </div>
+</div>

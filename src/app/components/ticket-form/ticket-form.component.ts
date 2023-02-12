@@ -54,7 +54,8 @@ export class TicketFormComponent implements OnInit {
         category: {id: 0, name: "", weight: null},
         status: {id: 0, name: "", weight: null},
         priority: {id: 0, name: "", weight: null},
-        description: ""
+        description: "",
+        creationDate: new Date()
       };
     }
 

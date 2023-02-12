@@ -7,4 +7,5 @@ export interface TicketFormEdit {
     status: TicketField;
     priority: TicketField;
     description: string;
+    creationDate: Date;
 }

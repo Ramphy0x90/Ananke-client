@@ -19,6 +19,18 @@
       </fieldset>
       <fieldset>
         <div class="mb-3">
+          <label for="ticket-title" class="form-label">Creation date</label>
+          <input type="datetime" id="creation-date" class="form-control" disabled
+          [value]="formData.creationDate | date:'dd/MM/yyyy HH:mm:SS'" name="creation-date">
+        </div>
+        <div class="mb-3">
+          <label for="ticket-title" class="form-label">Closed date</label>
+          <input type="text" id="ticket-title" class="form-control"
+            name="closed-date">
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="mb-3">
           <label for="ticket-status" class="form-label">Status</label>
           <select id="ticket-status" class="form-select"
           [(ngModel)]="formData.status" #status="ngModel" name="status">
