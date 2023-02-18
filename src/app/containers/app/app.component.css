@@ -1,5 +1,5 @@
 .app-main-container {
-    
+    min-width: 635px;
 }
 
 .app-main-container > div {
@@ -8,7 +8,7 @@
 }
 
 .side-menu-container {
-    width: 276px;
+    flex-shrink: 1;
     border-right: 1px solid var(--main);
     background-color: var(--main-bg-0);
 }

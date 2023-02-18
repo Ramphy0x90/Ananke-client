@@ -6,10 +6,16 @@
         (click)="nvaigate(option.route)"
         *ngIf="option.name != 'separator'; else elseBlock">
             <i class="{{ option.icon }}"></i>
-            {{ option.id | idToName }}
+            <span>{{ option.id | idToName }}</span>
         </div>
         <ng-template #elseBlock>
             <div class="separator"></div>
         </ng-template> 
-    </ng-container>     
+    </ng-container>
+    <div class="side-navbar-status" (click)="changeSideMenuStatus()">
+        <i class="bi bi-chevron-bar-left" *ngIf="sideMenuOpen; else elseBlock"></i>
+        <ng-template #elseBlock>
+            <i class="bi bi-chevron-bar-right"></i>
+        </ng-template> 
+    </div>
 </div>

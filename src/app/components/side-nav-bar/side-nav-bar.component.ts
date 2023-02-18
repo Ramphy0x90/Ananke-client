@@ -60,6 +60,7 @@ export class SideNavBarComponent {
   ];
 
   currentPage: string = "";
+  sideMenuOpen: boolean = true;
 
   constructor(private navigationService: NavigationService) {
     this.navigationService.currentPage.subscribe({
@@ -75,5 +76,21 @@ export class SideNavBarComponent {
    */
   nvaigate(page: String): void {
     this.navigationService.setCurrentPage(page.toString());
+  }
+
+  changeSideMenuStatus(): void {
+    let sideMenuContainer: HTMLElement | null = document.querySelector(".side-nav-bar-main-container");
+    let sideMenuOptions: NodeListOf<HTMLElement> = document.querySelectorAll('.side-navbar-option span');
+    this.sideMenuOpen = !this.sideMenuOpen;
+
+    sideMenuOptions.forEach((option: HTMLElement) => {
+      if(this.sideMenuOpen) {
+        option.style.display = 'block';
+        if(sideMenuContainer) sideMenuContainer.style.width = 'calc(276px - (var(--space-4) * 2))';
+      } else {
+        if(sideMenuContainer) sideMenuContainer.style.width = 'fit-content';
+        option.style.display = 'none';
+      }
+    });
   }
 }
