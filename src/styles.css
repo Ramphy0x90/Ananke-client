@@ -65,7 +65,8 @@ i {
 }
 
 .form input,
-.form select {
+.form select,
+ng-select {
   width: 100%;
   padding: var(--space-1);
   color: var(--font-color-1);
@@ -74,6 +75,10 @@ i {
   border-radius: 0;
 }
 
+.ng-dropdown-panel-items {
+  background: var(--main-bg-0);
+  padding: var(--space-1);
+}
 
 .form .submit-button {
   color: var(--font-color-1);

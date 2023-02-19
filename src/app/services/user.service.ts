@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user/user';
 import { UserLogin } from '../models/user/user-login';
+import { UserResponse } from '../models/user/user-response';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,16 @@ export class UserService {
   getLoggedUserToken(): string {
     let token = window.sessionStorage.getItem('token');
     return token ? token : '';
+  }
+
+  /**
+   * Get all users
+   * @returns users array
+   */
+  getUsers(): Observable<any> {
+    return this.httpClient.get(
+      `${environment.server}/user/all`, this.httpOptions
+    );
   }
 
   /**

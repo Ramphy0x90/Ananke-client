@@ -13,7 +13,8 @@
 
 .ticket-form-main-container input,
 .ticket-form-main-container textarea,
-.ticket-form-main-container select {
+.ticket-form-main-container select,
+ng-select {
     color: var(--font-color-1);
     border: none;
     border-radius: 0;
@@ -30,7 +31,7 @@
 }
 
 .ticket-form-main-container button {
-    color: var(--font-color-1);
+    color: var(--main-bg);
     border: none;
     padding: var(--space-2) var(--space-4);
 }

@@ -24,6 +24,7 @@ import { RecentTicketsComponent } from './containers/ticket/recent-tickets/recen
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
 import { TicketsTableComponent } from './components/ticket/tickets-table/tickets-table.component';
 import { IdToNamePipe } from './pipes/ticket/id-to-name.pipe';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { IdToNamePipe } from './pipes/ticket/id-to-name.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     NgxChartsModule,
+    NgSelectModule,
     ToastrModule.forRoot({
       timeOut: 2500,
       positionClass: 'toast-top-right',

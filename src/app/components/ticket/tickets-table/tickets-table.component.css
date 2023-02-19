@@ -1,4 +1,5 @@
 .tickets-table-main-container thead, .tickets-table-main-container thead th {
+    color: var(--main-bg);
     background-color: var(--main);
 }
 

@@ -1,3 +1,4 @@
+import { UserResponse } from "../user/user-response";
 import { TicketField } from "./ticket-field";
 
 export interface TicketFormEdit {
@@ -8,4 +9,5 @@ export interface TicketFormEdit {
     priority: TicketField;
     description: string;
     creationDate: Date;
+    assignee: UserResponse | null;
 }

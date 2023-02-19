@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { TicketField } from 'src/app/models/ticket/ticket-field';
 import { TicketFormCreate } from 'src/app/models/ticket/ticket-form-create';
 import { TicketFormEdit } from 'src/app/models/ticket/ticket-form-edit';
+import { UserResponse } from 'src/app/models/user/user-response';
 import { EventsService } from 'src/app/services/events.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { TicketService } from 'src/app/services/ticket.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-ticket-form',
@@ -21,6 +23,7 @@ export class TicketFormComponent implements OnInit {
   states: TicketField[] = [];
   priorities: TicketField[] = [];
   categories: TicketField[] = [];
+  users: UserResponse[] = [];
 
   defaultFields = {
     state: "Open",
@@ -28,13 +31,25 @@ export class TicketFormComponent implements OnInit {
     category: "-"
   };
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
+    private userService: UserService,
     private ticketService: TicketService,
     private eventService: EventsService,
-    private navigationService: NavigationService) {}
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
+
+    this.userService.getUsers().subscribe({
+      next: (data) => {
+        this.users = data;
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    });
 	}
 
   /**
@@ -55,7 +70,8 @@ export class TicketFormComponent implements OnInit {
         status: {id: 0, name: "", weight: null},
         priority: {id: 0, name: "", weight: null},
         description: "",
-        creationDate: new Date()
+        creationDate: new Date(),
+        assignee: null
       };
     }
 
