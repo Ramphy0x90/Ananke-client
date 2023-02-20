@@ -35,6 +35,13 @@ export class NavBarComponent implements OnInit {
       access: 3
     },
     {
+      id: 'NB:admin_panel',
+      name: 'Admin panel',
+      icon: '',
+      route: 'admin',
+      access: 4
+    },
+    {
       id: 'NB:login',
       name: 'Login',
       icon: '',
@@ -85,7 +92,8 @@ export class NavBarComponent implements OnInit {
     }
 
     if(accessLevel == 4) {
-      if(this.userService.isLoggedIn() && user?.roles.includes('ROLE_ADMIN')) {
+      let checkAdmin = user?.roles.filter((role) => role.name == 'ROLE_ADMIN')
+      if(checkAdmin) {
         return true;
       }
     }
