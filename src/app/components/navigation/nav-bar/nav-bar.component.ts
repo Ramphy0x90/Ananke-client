@@ -35,8 +35,8 @@ export class NavBarComponent implements OnInit {
       access: 3
     },
     {
-      id: 'NB:admin_panel',
-      name: 'Admin panel',
+      id: 'NB:admin',
+      name: 'Admin',
       icon: '',
       route: 'admin',
       access: 4

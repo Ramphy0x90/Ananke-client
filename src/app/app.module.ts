@@ -25,6 +25,8 @@ import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/close
 import { TicketsTableComponent } from './components/ticket/tickets-table/tickets-table.component';
 import { IdToNamePipe } from './pipes/ticket/id-to-name.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AdminComponent } from './containers/admin/admin.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     RecentTicketsComponent,
     ClosedTicketsComponent,
     TicketsTableComponent,
-    IdToNamePipe
+    IdToNamePipe,
+    AdminComponent,
+    InfoCardComponent
   ],
   imports: [
     BrowserModule,

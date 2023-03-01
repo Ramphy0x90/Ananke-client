@@ -10,12 +10,12 @@ import { CreateTicketComponent } from './containers/ticket/create-ticket/create-
 import { RecentTicketsComponent } from './containers/ticket/recent-tickets/recent-tickets.component';
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
 import { TicketComponent } from './containers/ticket/ticket.component';
+import { AdminComponent } from './containers/admin/admin.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  {
-    path: 'app', component: AnankeAppComponent, canActivate: [AuthGuard], children: [
+  { path: 'app', component: AnankeAppComponent, canActivate: [AuthGuard], children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'tickets', component: TicketsComponent, children: [
         { path: '', component: TicketsComponent },
@@ -26,6 +26,7 @@ const routes: Routes = [
       ] },
     ]
   },
+  {path: 'admin', component: AdminComponent},
   { path: 'log-in', component: LoginComponent }
 ];
 
