@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TicketFormCreate } from 'src/app/models/ticket/ticket-form-create';
-import { Ticket } from '../models/ticket/ticket';
 import { TicketFormEdit } from '../models/ticket/ticket-form-edit';
 
 @Injectable({
