@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'app', component: AnankeAppComponent, canActivate: [AuthGuard], children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'tickets', component: TicketsComponent, children: [
-        { path: '', component: TicketsComponent },
         { path: 'edit', component: TicketComponent},
         { path: 'create', component: CreateTicketComponent },
         { path: 'all', component: RecentTicketsComponent },

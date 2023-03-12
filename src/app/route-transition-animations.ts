@@ -13,7 +13,7 @@ export const RouteTransitionAnimations = trigger('fadeTransition', [
       // Element that will be displayed
       query(':enter', [
         style({ opacity: '0', }),
-        animate('0.6s linear', style({ opacity: '1' }))
+        animate('0.2s linear', style({ opacity: '1' }))
       ], { optional: true }),
       // Old element that will be removed fro screen
       query(':leave', [

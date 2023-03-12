@@ -1,162 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TicketService } from 'src/app/services/ticket.service';
+import { Ticket } from 'src/app/models/ticket/ticket';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   multi: any[] = [
-    {
-      "name": "Incoming tickets",
-      "series": [
-        {
-          "name": "January",
-          "value": 23
-        },
-        {
-          "name": "February",
-          "value": 25
-        },
-        {
-          "name": "March",
-          "value": 32
-        },
-        {
-          "name": "April",
-          "value": 12
-        },
-        {
-          "name": "May",
-          "value": 18
-        },
-        {
-          "name": "June",
-          "value": 14
-        },
-        {
-          "name": "July",
-          "value": 21
-        },
-        {
-          "name": "August",
-          "value": 14
-        },
-        {
-          "name": "September",
-          "value": 92
-        },
-        {
-          "name": "November",
-          "value": 65
-        },
-        {
-          "name": "December",
-          "value": 32
-        }
-      ]
-    },
-
-    {
-      "name": "Solved tickets",
-      "series": [
-        {
-          "name": "January",
-          "value": 20
-        },
-        {
-          "name": "February",
-          "value": 30
-        },
-        {
-          "name": "March",
-          "value": 21
-        },
-        {
-          "name": "April",
-          "value": 12
-        },
-        {
-          "name": "May",
-          "value": 32
-        },
-        {
-          "name": "June",
-          "value": 14
-        },
-        {
-          "name": "July",
-          "value": 27
-        },
-        {
-          "name": "August",
-          "value": 13
-        },
-        {
-          "name": "September",
-          "value": 32
-        },
-        {
-          "name": "November",
-          "value": 65
-        },
-        {
-          "name": "December",
-          "value": 32
-        }
-      ]
-    },
-
-    {
-      "name": "Unsolved tickets",
-      "series": [
-        {
-          "name": "January",
-          "value": 123
-        },
-        {
-          "name": "February",
-          "value": 45
-        },
-        {
-          "name": "March",
-          "value": 23
-        },
-        {
-          "name": "April",
-          "value": 25
-        },
-        {
-          "name": "May",
-          "value": 32
-        },
-        {
-          "name": "June",
-          "value": 12
-        },
-        {
-          "name": "July",
-          "value": 45
-        },
-        {
-          "name": "August",
-          "value": 14
-        },
-        {
-          "name": "September",
-          "value": 30
-        },
-        {
-          "name": "November",
-          "value": 21
-        },
-        {
-          "name": "December",
-          "value": 32
-        }
-      ]
-    }
+    {name: "Incoming tickets", series: []},
+    {name: "Solved tickets", series: []},
+    {name: "Unsolved tickets", series: []}
   ];
+
+  constructor(private ticketService: TicketService) {}
+
+  ngOnInit(): void {
+    this.ticketService.getTickets().subscribe({
+      next: (data: Ticket[]) => {
+        let incomingTickets = _.groupBy(data, (ticket) => {
+          let creationDate = new Date(ticket.creationDate);
+          return creationDate.toLocaleString('default', {month: 'long'});
+        });
+
+        Object.keys(incomingTickets).forEach((month) => {
+          this.multi[0].series.push({
+            name: month,
+            value: incomingTickets[month].length
+          });
+        });
+      }
+    });
+  }
 
   single: any[] = [
     {
