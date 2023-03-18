@@ -139,7 +139,7 @@ export class TicketFormComponent implements OnInit {
             this.router.navigate(['app/tickets']);
           },
           error: (error) => {
-            this.formNotify.emit({type: 'error',message: 'Error creating ticket'});
+            this.formNotify.emit({type: 'error',message: 'Error editing ticket'});
             console.log(error);
           }
         });

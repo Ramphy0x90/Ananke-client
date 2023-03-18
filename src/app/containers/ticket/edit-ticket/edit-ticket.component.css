@@ -1,0 +1,5 @@
+.edit-ticket-main-container .page-title {
+    font-size: 22px;
+    color: var(--font-color-1);
+    margin-bottom: var(--space-4);
+}

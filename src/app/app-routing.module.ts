@@ -9,8 +9,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { CreateTicketComponent } from './containers/ticket/create-ticket/create-ticket.component';
 import { RecentTicketsComponent } from './containers/ticket/recent-tickets/recent-tickets.component';
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
-import { TicketComponent } from './containers/ticket/ticket.component';
 import { AdminComponent } from './containers/admin/admin.component';
+import { EditTicketComponent } from './containers/ticket/edit-ticket/edit-ticket.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'app', component: AnankeAppComponent, canActivate: [AuthGuard], children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'tickets', component: TicketsComponent, children: [
-        { path: 'edit', component: TicketComponent},
+        { path: 'edit', component: EditTicketComponent},
         { path: 'create', component: CreateTicketComponent },
         { path: 'all', component: RecentTicketsComponent },
         { path: 'closed', component: ClosedTicketsComponent }

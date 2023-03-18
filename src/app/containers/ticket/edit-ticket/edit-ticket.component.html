@@ -1,0 +1,7 @@
+<div class="edit-ticket-main-container">
+  <div class="page-title">Edit ticket</div>
+  <app-ticket-form
+    [type]="'edit'"
+    (formNotify)="notify($event)"
+  ></app-ticket-form>
+</div>
