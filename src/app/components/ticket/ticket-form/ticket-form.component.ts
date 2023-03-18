@@ -149,15 +149,6 @@ export class TicketFormComponent implements OnInit {
   }
 
   /**
-   * This function is used to close the form
-   * and clear form data
-   */
-  close(): void {
-    this.navigationService.setCurrentView("");
-    this.router.navigate(['app/tickets']);
-  }
-
-  /**
    * This function is used to search an index
    * by a given value in order to set default values
    * @param fields Array of fields
@@ -166,5 +157,14 @@ export class TicketFormComponent implements OnInit {
    */
   getFieldKey(fields: TicketField[], value: string): any {
     return fields.findIndex(item => item.name === value);
+  }
+
+  /**
+   * This function is used to close the form
+   * and clear form data
+   */
+  close(): void {
+    this.navigationService.setCurrentView("");
+    this.router.navigate(['app/tickets']);
   }
 }
