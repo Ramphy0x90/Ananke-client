@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AnankeAppComponent } from './containers/app/app.component';
 import { HomeComponent } from './containers/home/home.component';
 import { LoginComponent } from './containers/login/login.component';
-import { TicketComponent } from './containers/ticket/ticket.component';
 import { NavBarComponent } from './components/navigation/nav-bar/nav-bar.component';
 import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +18,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ToastrModule } from 'ngx-toastr';
 import { TicketActionsMenuComponent } from './components/ticket/ticket-actions-menu/ticket-actions-menu.component';
 import { CreateTicketComponent } from './containers/ticket/create-ticket/create-ticket.component';
+import { EditTicketComponent } from './containers/ticket/edit-ticket/edit-ticket.component';
 import { TicketFormComponent } from './components/ticket/ticket-form/ticket-form.component';
 import { RecentTicketsComponent } from './containers/ticket/recent-tickets/recent-tickets.component';
 import { ClosedTicketsComponent } from './containers/ticket/closed-tickets/closed-tickets.component';
@@ -34,7 +34,6 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
     AnankeAppComponent,
     HomeComponent,
     LoginComponent,
-    TicketComponent,
     NavBarComponent,
     AuthFormComponent,
     SideNavBarComponent,
@@ -42,13 +41,14 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
     TicketsComponent,
     TicketActionsMenuComponent,
     CreateTicketComponent,
+    EditTicketComponent,
     TicketFormComponent,
     RecentTicketsComponent,
     ClosedTicketsComponent,
     TicketsTableComponent,
     IdToNamePipe,
     AdminComponent,
-    InfoCardComponent
+    InfoCardComponent,
   ],
   imports: [
     BrowserModule,
