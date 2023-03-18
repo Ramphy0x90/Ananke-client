@@ -93,6 +93,12 @@ ng-select {
   background-color: var(--main-dark);
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-4);
+}
+
 /*.form .text-error
   color: $RED
   font-size: 13px*/
