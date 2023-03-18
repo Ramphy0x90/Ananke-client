@@ -8,5 +8,6 @@ export interface Ticket {
     category: any;
     priority: any;
     creationDate: Date;
+    lastEditDate: Date;
     closeData: Date;
 }

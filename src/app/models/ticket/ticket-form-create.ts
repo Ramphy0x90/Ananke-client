@@ -8,5 +8,6 @@ export interface TicketFormCreate {
     priority: TicketField;
     description: string;
     creationDate: Date;
+    lastEditDate: Date;
     assignee: UserResponse | null;
 }

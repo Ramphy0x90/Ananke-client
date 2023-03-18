@@ -55,14 +55,21 @@
         </div>
       </fieldset>
       <fieldset>
-        <div class="mb-3">
-          <label for="ticket-title" class="form-label">Creation date</label>
-          <input type="datetime" id="creation-date" class="form-control" disabled
-          [value]="formData.creationDate | date:'dd/MM/yyyy HH:mm:SS'" name="creation-date">
+        <div class="flex-row">
+          <div class="mb-3">
+            <label for="ticket-title" class="form-label">Creation date</label>
+            <input type="datetime" id="creation-date" class="form-control" disabled
+            [value]="formData.creationDate | date:'dd/MM/yyyy HH:mm:SS'" name="creation-date">
+          </div>
+          <div class="mb-3">
+            <label for="ticket-title" class="form-label">Last edit date</label>
+            <input type="datetime" id="last-edit-date" class="form-control" disabled
+            [value]="formData.lastEditDate | date:'dd/MM/yyyy HH:mm:SS'" name="last-edit-date">
+          </div>
         </div>
         <div class="mb-3">
           <label for="ticket-title" class="form-label">Closed date</label>
-          <input type="text" id="ticket-title" class="form-control"
+          <input type="text" id="ticket-title" class="form-control" disabled
             name="closed-date">
         </div>
       </fieldset>

@@ -11,6 +11,7 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class TicketsTableComponent implements OnInit{
   @Input() tickets: Ticket[] = [];
+  
   selectedTickets: Ticket[] = [];
   visibleColumns: string[] = [
     "Id",
@@ -19,7 +20,8 @@ export class TicketsTableComponent implements OnInit{
     "Status",
     "Priority",
     "Category",
-    "Created date"
+    "Created date",
+    "Last edit date"
   ];
 
   event: Event = {
