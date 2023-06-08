@@ -1,4 +1,6 @@
 <div class="admin-main-container main-container">
-    Admin
+    <ng-container *ngFor="let option of options">
+        <app-info-card [optionData]="option"></app-info-card>
+    </ng-container>
 </div>
   
