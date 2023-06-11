@@ -1,28 +1,33 @@
 .app-main-container {
-    min-width: 635px;
+  min-width: 635px;
 }
 
 .app-main-container > div {
-    height: 100%;
-    padding: calc(var(--space-3) * 2);
+  height: 100%;
+  padding: calc(var(--space-3) * 2);
 }
 
 .side-menu-container {
-    flex-shrink: 1;
-    border-right: 1px solid var(--main);
-    background-color: var(--main-bg-0);
+  flex-shrink: 1;
+  border-right: 1px solid var(--main);
+  background-color: var(--main-bg-0);
 }
 
 .body-container {
-    flex: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+  flex: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.body-container .content {
+  position: relative;
+  width: 100%;
 }
 
 ::ng-deep .ngx-charts text {
-    fill: var(--font-color-1) !important;
+  fill: var(--font-color-1) !important;
 }
 
 ::ng-deep .chart-legend li:hover * {
-    color: var(--main) !important;
+  color: var(--main) !important;
 }

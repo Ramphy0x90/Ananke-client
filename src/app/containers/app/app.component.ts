@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouteTransitionAnimations } from 'src/app/route-transition-animations';
+import { RouteTransitionAnimations } from 'src/app/transitions/route-transition-animations';
 
 @Component({
   selector: 'app-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [RouteTransitionAnimations]
+  animations: [RouteTransitionAnimations],
 })
-export class AnankeAppComponent {
-
-}
+export class AnankeAppComponent {}

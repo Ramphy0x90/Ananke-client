@@ -1,22 +1,28 @@
-.tickets-table-main-container thead, .tickets-table-main-container thead th {
-    color: var(--main-bg);
-    background-color: var(--main);
+.tickets-table-main-container {
+  position: absolute;
+  width: 100%;
+}
+
+.tickets-table-main-container thead,
+.tickets-table-main-container thead th {
+  color: var(--main-bg);
+  background-color: var(--main);
 }
 
 .tickets-table-main-container thead i {
-    color: var(--font-color);
-    font-size: 15px;
+  color: var(--font-color);
+  font-size: 15px;
 }
 
 .tickets-table-main-container tr {
-    color: var(--font-color);
+  color: var(--font-color);
 }
 
 .tickets-table-main-container tbody tr:hover {
-    color: var(--main);
-    cursor: pointer;
+  color: var(--main);
+  cursor: pointer;
 }
 
 .tickets-table-main-container .selected {
-    color: var(--main);
+  color: var(--main);
 }

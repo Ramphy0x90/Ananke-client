@@ -1,11 +1,14 @@
 <div class="app-main-container main-container">
-    <div class="side-menu-container">
-        <app-side-nav-bar></app-side-nav-bar>
+  <div class="side-menu-container">
+    <app-side-nav-bar></app-side-nav-bar>
+  </div>
+  <div class="body-container">
+    <app-ticket-actions-menu></app-ticket-actions-menu>
+    <div
+      class="content"
+      [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''"
+    >
+      <router-outlet #outlet="outlet"></router-outlet>
     </div>
-    <div class="body-container">
-        <app-ticket-actions-menu></app-ticket-actions-menu>
-        <div [@fadeTransition]="outlet.isActivated ? outlet.activatedRoute : ''">
-            <router-outlet #outlet="outlet"></router-outlet>
-        </div>
-    </div>
+  </div>
 </div>
